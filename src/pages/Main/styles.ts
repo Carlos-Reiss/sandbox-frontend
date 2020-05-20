@@ -1,6 +1,9 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { shade } from 'polished';
 
+interface InputErrorProps {
+  inputError: boolean;
+}
 const appearFromRight = keyframes`
   from{
     opacity: 0;
@@ -12,7 +15,7 @@ const appearFromRight = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<InputErrorProps>`
   height: 100vh;
 
   display: flex;
@@ -31,6 +34,13 @@ export const Container = styled.div`
       border-radius: 4px;
       font-size: 16px;
       padding: 0 30px;
+
+      ${props =>
+        props.inputError &&
+        css`
+          border: 1px solid;
+          border-color: #eb4c34;
+        `}
     }
     button {
       height: 48px;
@@ -74,4 +84,8 @@ export const InputIcon = styled.div`
     margin-left: 10px;
     margin-top: 15px;
   }
+`;
+
+export const Error = styled.span`
+  color: #eb4c34;
 `;
