@@ -1,11 +1,22 @@
 import React, { useState, FormEvent } from 'react';
-import { FiBox } from 'react-icons/fi';
+import { FiBox, FiLoader } from 'react-icons/fi';
+import { RiArrowRightSLine } from 'react-icons/ri';
+import { Link, useHistory } from 'react-router-dom';
 import Modal, { ICustomModalStyle } from '@bdenzer/react-modal';
 import logoAPP from '../../assets/logo.svg';
-import { Container, LogoDiv, InputIcon, Error } from './styles';
+import {
+  Container,
+  LogoDiv,
+  InputIcon,
+  Error,
+  SubmitButton,
+  NextPage,
+  BoxNextPage,
+} from './styles';
 import api from '../../services/api';
 
 interface BoxProps {
+  _id: string;
   title: string;
 }
 
@@ -14,6 +25,9 @@ const Main: React.FC = () => {
   const [newBox, setNewBox] = useState('');
   const [box, setBox] = useState<BoxProps>({} as BoxProps);
   const [inputError, setInputError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
 
   const ModalStyle: ICustomModalStyle = {
     modalBackgroundOpen: {
@@ -29,9 +43,6 @@ const Main: React.FC = () => {
     modalHeader: {
       backgroundColor: '#345d7e',
     },
-    modalTitle: {
-      color: '#fff',
-    },
     modalBody: {
       display: 'flex',
       justifyContent: 'center',
@@ -44,9 +55,11 @@ const Main: React.FC = () => {
     event: FormEvent<HTMLFormElement>
   ): Promise<void> {
     event.preventDefault();
+    setLoading(true);
     try {
       if (!newBox) {
         setInputError('Digite um nome para Box');
+        setLoading(false);
         return;
       }
 
@@ -57,6 +70,7 @@ const Main: React.FC = () => {
 
       setNewBox('');
       setInputError('');
+      setLoading(false);
     } catch (error) {
       setInputError('Erro ao Criar Box');
     }
@@ -80,17 +94,32 @@ const Main: React.FC = () => {
           />
         </InputIcon>
         {inputError && <Error>{inputError}</Error>}
-        <button type="submit">Criar</button>
+        <SubmitButton loading={loading}>
+          {loading ? <FiLoader size={20} color="#fff" /> : <p>Criar</p>}
+        </SubmitButton>
       </form>
       <Modal
         closeModal={closeModal}
         shouldShowModal={visible}
         customStyle={ModalStyle}
       >
-        <h1>Criado box com sucesso!</h1>
+        <BoxNextPage>
+          <h1>Criado box com sucesso!</h1>
+          <p>
+            Box: <strong>{box.title}</strong>
+          </p>
 
-        <p>Box: {box.title}</p>
+          <Link to={`/boxes/${box._id}`}>
+            ir para a Box
+            <RiArrowRightSLine size={30} color="#345d7e" />
+          </Link>
+        </BoxNextPage>
       </Modal>
+      <NextPage>
+        <Link to="/boxes">
+          <RiArrowRightSLine size={30} color="#345d7e" />
+        </Link>
+      </NextPage>
     </Container>
   );
 };
