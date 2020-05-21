@@ -64,20 +64,19 @@ export const LogoDiv = styled.div`
   align-items: baseline;
   margin-bottom: 30px;
   padding: 10px;
+
   div {
     border-left: 1px solid #ddd;
     padding-left: 10px;
   }
   h1 {
-    color: #333;
+    color: ${props => props.theme.color.text};
   }
-  background: #fff;
+  background: ${props => props.theme.color.logoBackground};
   border-radius: 20px;
-  box-shadow: 0px 4px 1px #345d7e;
+  box-shadow: 0px 4px 1px ${props => props.theme.color.borderLogoBackground};
   transition: background 1s;
-  :hover {
-    background: #fff;
-  }
+
   span {
     font-size: 12px;
     margin-left: 10px;

@@ -25,7 +25,7 @@ export const Container = styled.div`
           font-weight: normal;
           font-size: 14px;
           margin-left: 10px;
-          color: #333;
+          color: ${props => props.theme.color.text};
         }
 
         transition: transform 1s;

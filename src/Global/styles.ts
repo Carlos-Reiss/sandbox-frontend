@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const Global = createGlobalStyle`
+export default createGlobalStyle`
   *{
     margin:0;
     padding: 0;
@@ -13,9 +13,10 @@ export const Global = createGlobalStyle`
     }
   }
   body{
+    background: ${props => props.theme.color.background};
     -webkit-font-smoothing: antialiased !important;
     font-size: 16px;
-    color: #333;
+    color: ${props => props.theme.color.text};
     font-family: 'Roboto', Helvetica,sans-serif;
 
   }

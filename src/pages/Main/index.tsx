@@ -45,6 +45,7 @@ const Main: React.FC = () => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
+      color: '#000',
     },
   };
 
