@@ -95,16 +95,17 @@ const Box: React.FC = () => {
                 <MdInsertDriveFile size={24} color="#345d7e" />
                 <strong>{file.title}</strong>
               </a>
-
-              <span>
-                {formatDistance(new Date(file.createdAt), new Date(), {
-                  addSuffix: true,
-                  locale: pt,
-                })}
-              </span>
-              <button type="button" onClick={() => handleDelete(file.id)}>
-                <FiTrash2 color="#345d7e" />
-              </button>
+              <div>
+                <span>
+                  {formatDistance(new Date(file.createdAt), new Date(), {
+                    addSuffix: true,
+                    locale: pt,
+                  })}
+                </span>
+                <button type="button" onClick={() => handleDelete(file.id)}>
+                  <FiTrash2 color="#345d7e" />
+                </button>
+              </div>
             </li>
           ))}
       </ul>

@@ -34,20 +34,22 @@ export const Container = styled.div`
           transform: translateX(-15px);
         }
       }
-      span {
-        position: absolute;
-        right: 250px;
-        color: #999;
-        font-size: 13px;
-      }
-      button {
-        border: 0;
-        background: none;
-        display: flex;
-        align-items: center;
-        svg {
-          :hover {
-            color: black;
+      div {
+        span {
+          position: absolute;
+          right: 250px;
+          color: #999;
+          font-size: 13px;
+        }
+        button {
+          border: 0;
+          background: none;
+          display: flex;
+          align-items: center;
+          svg {
+            :hover {
+              color: black;
+            }
           }
         }
       }
