@@ -35,10 +35,29 @@ export const Container = styled.div`
         }
       }
       span {
+        position: absolute;
+        right: 250px;
         color: #999;
         font-size: 13px;
       }
+      button {
+        border: 0;
+        background: none;
+        display: flex;
+        align-items: center;
+        svg {
+          :hover {
+            color: black;
+          }
+        }
+      }
     }
+  }
+`;
+export const Logo = styled.div`
+  display: flex;
+  align-items: baseline;
+  a {
   }
 `;
 
@@ -68,4 +87,13 @@ export const Header = styled.header`
     height: 64px;
     width: 64px;
   }
+`;
+export const Upload = styled.div`
+  border-radius: 4px;
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #345d7e;
+  color: #999;
+  margin-top: 50px;
+  cursor: pointer;
 `;

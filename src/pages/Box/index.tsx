@@ -1,36 +1,111 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { MdInsertDriveFile } from 'react-icons/md';
+import { FiTrash2 } from 'react-icons/fi';
+import { useRouteMatch, Link } from 'react-router-dom';
+import { formatDistance } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+
+import Dropzone from 'react-dropzone';
+
 import logo from '../../assets/logo.svg';
-import { Container, Header } from './styles';
+import { Container, Header, Logo, Upload } from './styles';
+import api from '../../services/api';
+
+interface BoxProps {
+  id: string;
+}
+
+interface FileInterface {
+  id: string;
+  url: string;
+  title: string;
+  createdAt: string;
+}
+
+interface BoxInterface {
+  _id: string;
+  title: string;
+  files: FileInterface[];
+}
 
 const Box: React.FC = () => {
+  const [box, setBox] = useState<BoxInterface>({} as BoxInterface);
+  const [files, setFiles] = useState<FileInterface[]>([]);
+  const { params } = useRouteMatch<BoxProps>();
+
+  useEffect(() => {
+    async function loadFiles() {
+      const response = await api.get(`boxes/${params.id}`);
+
+      setBox(response.data.boxes);
+      setFiles(response.data.boxes.files);
+    }
+    loadFiles();
+  }, [params.id]);
+
+  const onDrop = useCallback(
+    async (file: File[]) => {
+      const data = new FormData();
+
+      data.append('file', file[0]);
+
+      await api.post(`/files/boxes/${box?._id}`, data);
+      const response = await api.get(`boxes/${params.id}`);
+
+      setFiles(response.data.boxes.files);
+    },
+    [box]
+  );
+
+  const handleDelete = async (id: string) => {
+    await api.delete(`/files/${id}/boxes/${box._id}`);
+    const newFiles = files.filter(file => file.id !== id);
+    setFiles(newFiles);
+  };
+
   return (
     <Container>
       <Header>
-        <img src={logo} alt="Sandbox logo" />
+        <Logo>
+          <Link to="/">
+            <img src={logo} alt="Sandbox logo" />
+          </Link>
+          <h1>SandBox</h1>
+        </Logo>
         <div>
-          <h1>Wallpaper 4K</h1>
-          <span>Crie seus arquivos e guarde aqui!</span>
+          <h1>{box && box.title}</h1>
+          <span>Crie sua Box e guarde seus arquivos aqui!</span>
         </div>
       </Header>
+      <Dropzone onDropAccepted={onDrop}>
+        {({ getRootProps, getInputProps }) => (
+          <Upload {...getRootProps()}>
+            <input {...getInputProps()} />
+            <p>Arrastar arquivos ou clique aqui para adicionar arquivos</p>
+          </Upload>
+        )}
+      </Dropzone>
 
       <ul>
-        <li>
-          <a href="RR">
-            <MdInsertDriveFile size={24} color="#345d7e" />
-            <strong>desafio.pdf</strong>
-          </a>
+        {files &&
+          files.map(file => (
+            <li key={file.id}>
+              <a href={file.url} target="_blank">
+                <MdInsertDriveFile size={24} color="#345d7e" />
+                <strong>{file.title}</strong>
+              </a>
 
-          <span>há 3 minutos atrás</span>
-        </li>
-        <li>
-          <a href="RR">
-            <MdInsertDriveFile size={24} color="#345d7e" />
-            <strong>desafio.pdf</strong>
-          </a>
-
-          <span>há 3 minutos atrás</span>
-        </li>
+              <span>
+                {formatDistance(new Date(file.createdAt), new Date(), {
+                  addSuffix: true,
+                  locale: pt,
+                })}
+              </span>
+              <button type="button" onClick={() => handleDelete(file.id)}>
+                <FiTrash2 color="#345d7e" />
+              </button>
+            </li>
+          ))}
       </ul>
     </Container>
   );

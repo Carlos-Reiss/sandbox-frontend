@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { FiBox, FiLoader } from 'react-icons/fi';
 import { RiArrowRightSLine } from 'react-icons/ri';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Modal, { ICustomModalStyle } from '@bdenzer/react-modal';
 import logoAPP from '../../assets/logo.svg';
 import {
@@ -26,8 +26,6 @@ const Main: React.FC = () => {
   const [box, setBox] = useState<BoxProps>({} as BoxProps);
   const [inputError, setInputError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  const history = useHistory();
 
   const ModalStyle: ICustomModalStyle = {
     modalBackgroundOpen: {

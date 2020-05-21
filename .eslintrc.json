@@ -29,6 +29,8 @@
       "prettier"
   ],
   "rules": {
+    "react/jsx-no-target-blank":"off",
+    "import/no-duplicates": "off",
     "no-underscore-dangle":"off",
     "react/jsx-one-expression-per-line": "off",
     "prettier/prettier":"error",
