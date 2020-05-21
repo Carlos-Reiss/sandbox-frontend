@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { MdInsertDriveFile } from 'react-icons/md';
 import { FiTrash2 } from 'react-icons/fi';
+import { RiArrowLeftSLine } from 'react-icons/ri';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import pt from 'date-fns/locale/pt';
@@ -8,7 +9,7 @@ import pt from 'date-fns/locale/pt';
 import Dropzone from 'react-dropzone';
 
 import logo from '../../assets/logo.svg';
-import { Container, Header, Logo, Upload } from './styles';
+import { Container, Header, Logo, Upload, NextPage } from './styles';
 import api from '../../services/api';
 
 interface BoxProps {
@@ -107,6 +108,11 @@ const Box: React.FC = () => {
             </li>
           ))}
       </ul>
+      <NextPage>
+        <Link to="/">
+          <RiArrowLeftSLine size={30} color="#345d7e" />
+        </Link>
+      </NextPage>
     </Container>
   );
 };

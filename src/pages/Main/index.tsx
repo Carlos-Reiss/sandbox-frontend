@@ -10,7 +10,6 @@ import {
   InputIcon,
   Error,
   SubmitButton,
-  NextPage,
   BoxNextPage,
 } from './styles';
 import api from '../../services/api';
@@ -80,7 +79,10 @@ const Main: React.FC = () => {
     <Container inputError={!!inputError}>
       <LogoDiv>
         <img src={logoAPP} alt="SandBox" />
-        <h1>SandBox</h1>
+        <div>
+          <h1>SandBox</h1>
+          <span>Crie sua Box e guarde seus arquivos aqui!</span>
+        </div>
       </LogoDiv>
       <form onSubmit={handlesubmit}>
         <InputIcon>
@@ -113,11 +115,6 @@ const Main: React.FC = () => {
           </Link>
         </BoxNextPage>
       </Modal>
-      <NextPage>
-        <Link to="/boxes">
-          <RiArrowRightSLine size={30} color="#345d7e" />
-        </Link>
-      </NextPage>
     </Container>
   );
 };

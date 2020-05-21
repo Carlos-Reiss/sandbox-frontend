@@ -64,6 +64,10 @@ export const LogoDiv = styled.div`
   align-items: baseline;
   margin-bottom: 30px;
   padding: 10px;
+  div {
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+  }
   h1 {
     color: #333;
   }
@@ -73,6 +77,10 @@ export const LogoDiv = styled.div`
   transition: background 1s;
   :hover {
     background: #fff;
+  }
+  span {
+    font-size: 12px;
+    margin-left: 10px;
   }
 `;
 
@@ -113,24 +121,6 @@ export const SubmitButton = styled.button<ButtonProps>`
     css`
       cursor: no-drop;
     `}
-`;
-
-export const NextPage = styled.div`
-  width: 300px;
-  position: absolute;
-  right: 0;
-  bottom: 100px;
-  animation: ${appearFromRight} 1s;
-  a {
-    svg {
-      transition: transform linear 1s;
-      :hover {
-        transform: translateX(15px);
-        border: 1px solid #999;
-        border-radius: 4px;
-      }
-    }
-  }
 `;
 
 export const BoxNextPage = styled.div`

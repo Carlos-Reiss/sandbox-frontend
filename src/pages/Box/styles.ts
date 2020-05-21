@@ -97,3 +97,20 @@ export const Upload = styled.div`
   margin-top: 50px;
   cursor: pointer;
 `;
+
+export const NextPage = styled.div`
+  width: 900px;
+  position: absolute;
+  left: 100px;
+  bottom: 50px;
+  a {
+    svg {
+      transition: transform linear 1s;
+      :hover {
+        transform: translateX(-15px);
+        border: 1px solid #999;
+        border-radius: 4px;
+      }
+    }
+  }
+`;
