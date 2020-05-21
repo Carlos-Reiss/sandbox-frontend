@@ -35,6 +35,8 @@ export const Container = styled.div`
         }
       }
       div {
+        display: flex;
+        justify-content: space-between;
         span {
           position: absolute;
           right: 250px;
