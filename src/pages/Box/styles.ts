@@ -37,9 +37,8 @@ export const Container = styled.div`
       div {
         display: flex;
         justify-content: space-between;
+
         span {
-          position: absolute;
-          right: 250px;
           color: #999;
           font-size: 13px;
         }
@@ -48,6 +47,7 @@ export const Container = styled.div`
           background: none;
           display: flex;
           align-items: center;
+          margin-left: 40px;
           svg {
             :hover {
               color: black;
