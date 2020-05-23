@@ -1,6 +1,7 @@
-<div style="display:flex; align-itens: center; justify-content: center;">
+<div style="display:flex; align-itens: center; justify-content: center; img{height: 64px; width: 64px;}
+">
+  <img src="./src/assets/logo.svg" width="64" title="SandBox App" />
   <div style="display:flex; flex-direction: column;" >
-  <img src="./src/assets/logo.svg" style="height: 64px; width: 64px;"/>
     <h1 style="margin-left: 10px; margin-top: 20px;" >SandBox</h1>
     <span style="font-size: 14px;">Crie sua Box e guarde seus arquivos aqui!</span>
   </div>
