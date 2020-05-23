@@ -26,6 +26,7 @@ As tecnologias que utilizei nesse projeto foram:
 - React-switch
 - Styled-components
 - Typescript
+- @bdenzer/react-modal
 
 Como baixar e usar o Projeto em sua máquina:
 
