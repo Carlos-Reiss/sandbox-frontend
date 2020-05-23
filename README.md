@@ -1,6 +1,5 @@
 <div style="display:flex; align-itens: center; justify-content: center;">
-
-  <img src="./src/assets/logo.svg" style="height: 64px;"/>
+  <img src="./src/assets/logo.svg" style="height: 64px; width: 64px;"/>
   <div style="display:flex; flex-direction: column;" >
     <h1 style="margin-left: 10px; margin-top: 20px;" >SandBox</h1>
     <span style="font-size: 14px;">Crie sua Box e guarde seus arquivos aqui!</span>
