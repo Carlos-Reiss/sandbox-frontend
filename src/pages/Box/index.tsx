@@ -92,7 +92,7 @@ const Box: React.FC = () => {
           files.map(file => (
             <li key={file.id}>
               <a href={file.url} target="_blank">
-                <MdInsertDriveFile size={24} color="#345d7e" />
+                <MdInsertDriveFile size={24} color="#666" />
                 <strong>{file.title}</strong>
               </a>
               <div>
@@ -103,7 +103,7 @@ const Box: React.FC = () => {
                   })}
                 </span>
                 <button type="button" onClick={() => handleDelete(file.id)}>
-                  <FiTrash2 color="#345d7e" />
+                  <FiTrash2 color="#666" />
                 </button>
               </div>
             </li>
@@ -111,7 +111,7 @@ const Box: React.FC = () => {
       </ul>
       <NextPage>
         <Link to="/">
-          <RiArrowLeftSLine size={30} color="#345d7e" />
+          <RiArrowLeftSLine size={30} />
         </Link>
       </NextPage>
     </Container>

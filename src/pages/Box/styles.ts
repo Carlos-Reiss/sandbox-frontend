@@ -49,8 +49,9 @@ export const Container = styled.div`
           align-items: center;
           margin-left: 40px;
           svg {
+            color: ${props => props.theme.color.borderLogoBackground};
             :hover {
-              color: black;
+              size: 50;
             }
           }
         }
@@ -72,7 +73,7 @@ export const Header = styled.header`
   justify-content: space-evenly;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0px 4px 1px #345d7e;
+  box-shadow: 0px 4px 1px ${props => props.theme.color.borderLogoBackground};
 
   div {
     h1 {
@@ -96,7 +97,7 @@ export const Upload = styled.div`
   border-radius: 4px;
   padding: 30px;
   text-align: center;
-  border: 1px dashed #345d7e;
+  border: 1px dashed ${props => props.theme.color.borderLogoBackground};
   color: #999;
   margin-top: 50px;
   cursor: pointer;
@@ -109,10 +110,11 @@ export const NextPage = styled.div`
   bottom: 50px;
   a {
     svg {
+      color: ${props => props.theme.color.borderLogoBackground};
       transition: transform linear 1s;
       :hover {
         transform: translateX(-15px);
-        border: 1px solid #999;
+        border: 1px solid ${props => props.theme.color.borderLogoBackground};
         border-radius: 4px;
       }
     }
