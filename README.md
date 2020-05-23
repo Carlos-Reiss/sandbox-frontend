@@ -1,5 +1,4 @@
-<div style="display:flex; align-itens: center; justify-content: center; img{height: 64px; width: 64px;}
-">
+<div  align="center">
   <img src="./src/assets/logo.svg" width="64" title="SandBox App" />
   <div style="display:flex; flex-direction: column;" >
     <h1 style="margin-left: 10px; margin-top: 20px;" >SandBox</h1>
