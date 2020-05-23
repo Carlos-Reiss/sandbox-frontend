@@ -13,7 +13,7 @@
 
   link para da uma olhada na interface: [SandBox](https://frontend-sandbox.herokuapp.com/)
 
-  [link para o Backend da aplicação feita com NodeJs.]()
+  [link para o Backend 💣 da aplicação feita com NodeJs.](https://github.com/Carlos-Reiss/sandbox-backend)
 
 As tecnologias que utilizei nesse projeto foram:
 
@@ -27,4 +27,23 @@ As tecnologias que utilizei nesse projeto foram:
 - React-switch
 - Styled-components
 - Typescript
+
+Como baixar e usar o Projeto em sua máquina:
+
+Observação: Por padrão o axios está apontando para o backend para guardar os itens.
+
+```bash
+  # clonar repositório
+  git clone https://github.com/Carlos-Reiss/sandbox-frontend.git
+
+  # abrir pasta do projeto
+  cd sandbox-frontend
+
+  # instalar dependências do projeto
+  yarn install ou npm install
+
+  # inicializar projeto
+  yarn start
+
+```
 
