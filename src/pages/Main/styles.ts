@@ -65,6 +65,10 @@ export const LogoDiv = styled.div`
   margin-bottom: 30px;
   padding: 10px;
 
+  > img {
+    height: 180px;
+  }
+
   div {
     border-left: 1px solid #ddd;
     padding-left: 10px;
