@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import Global from './Global/styles';
@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   const toggleTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
-  }, [theme]);
+  }, [theme, setTheme]);
   return (
     <>
       <ThemeProvider theme={theme}>

@@ -10,7 +10,9 @@
   Desenvolvido com base na semana omnistack 6, uma  adaptação do codigo feito naquela semana em javascript agora usando typescript não está perfeita pois ainda estou numa fase de aprendizagem.
 
 
-  link para da uma olhada na interface: [SandBox](https://frontend-sandbox.herokuapp.com/)
+  Da uma olhada 😎 na interface: [SandBox]()
+
+  <img src="./src/assets/gif_to_app.gif" width="600" style=" border-radius: 10px;" />
 
   [link para o Backend 💣 da aplicação feita com NodeJs.](https://github.com/Carlos-Reiss/sandbox-backend)
 
